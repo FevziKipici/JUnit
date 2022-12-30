@@ -48,4 +48,12 @@ public class BankAccountTest {
     }
 
 
+    @Test
+    @DisplayName("Test that we cannot withdraw below minimum")
+    public void testNoWithdrawBelowMinimum(){
+        BankAccount bankAccount=new BankAccount(500,-1000);
+        assertThrows(RuntimeException.class,()->bankAccount.withdraw(2000));
+    }
+
+
 }
